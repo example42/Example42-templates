@@ -1,9 +1,9 @@
-Example42 Puppet Modules Templates
+# Example42 Puppet Modules Templates
 
 This is a collection of sample module layouts to be used as style reference or
 starting template for the creation of new modules.
 
-# What is (will be) here
+## What is (will be) here
 
    - The basic templates used for the creation of Example42 modules
 
@@ -16,7 +16,7 @@ starting template for the creation of new modules.
    - Suggestions, proposals, alternatives,  git pull requests are **very** welcomed
 
 
-# The Module dilemma
+## The Module dilemma
 
   - Everyone has his idea and style on how to make modules
 
@@ -29,7 +29,7 @@ starting template for the creation of new modules.
   - For simple or new modules it makes sense to generate them consistently
 
 
-# How to use the templates
+## How to use the templates
 
   - Download the Example42-templates repo (and the required Example42-tools).
     They are both on Example42 modules set
@@ -44,7 +44,7 @@ starting template for the creation of new modules.
   - A brand new mymodule is created with all the features of the source template
 
 
-# Example42 modules
+## Example42 modules
 
   - Templates with the 42 suffix are based on Example42 Puppet Modules layout
 
