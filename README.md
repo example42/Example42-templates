@@ -1,4 +1,4 @@
-= Example42 Puppet Modules Templates
+Example42 Puppet Modules Templates
 
 This is a collection of sample module layouts to be used as style reference or
 starting template for the creation of new modules.
