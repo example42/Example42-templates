@@ -366,6 +366,7 @@ class standard42 (
       source  => $standard42::source_dir,
       recurse => true,
       purge   => $standard42::bool_source_dir_purge,
+      force   => $standard42::bool_source_dir_purge,
       replace => $standard42::manage_file_replace,
       audit   => $standard42::manage_audit,
     }

@@ -163,6 +163,7 @@ class minimal42 (
       source  => $minimal42::source_dir,
       recurse => true,
       purge   => $minimal42::bool_source_dir_purge,
+      force   => $minimal42::bool_source_dir_purge,
       replace => $minimal42::manage_file_replace,
       audit   => $minimal42::manage_audit,
     }
