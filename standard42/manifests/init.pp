@@ -125,6 +125,11 @@
 #   Can be defined also by the (top scope) variables $standard42_audit_only
 #   and $audit_only
 #
+# [*noops*]
+#   Set noop metaparameter to true for all the resources managed by the module.
+#   Basically you can run a dryrun for this specific module if you set
+#   this to true. Default: false
+#
 # Default class params - As defined in standard42::params.
 # Note that these variables are mostly defined and used in the module itself,
 # overriding the default values might not affected all the involved components.
@@ -227,6 +232,7 @@ class standard42 (
   $firewall_dst        = params_lookup( 'firewall_dst' , 'global' ),
   $debug               = params_lookup( 'debug' , 'global' ),
   $audit_only          = params_lookup( 'audit_only' , 'global' ),
+  $noops               = params_lookup( 'noops' ),
   $package             = params_lookup( 'package' ),
   $service             = params_lookup( 'service' ),
   $service_status      = params_lookup( 'service_status' ),
@@ -257,6 +263,7 @@ class standard42 (
   $bool_firewall=any2bool($firewall)
   $bool_debug=any2bool($debug)
   $bool_audit_only=any2bool($audit_only)
+  $bool_noops=any2bool($noops)
 
   ### Definition of some variables used in the module
   $manage_package = $standard42::bool_absent ? {
@@ -330,7 +337,8 @@ class standard42 (
 
   ### Managed resources
   package { $standard42::package:
-    ensure => $standard42::manage_package,
+    ensure  => $standard42::manage_package,
+    noop    => $standard42::bool_noops,
   }
 
   service { 'standard42':
@@ -340,6 +348,7 @@ class standard42 (
     hasstatus  => $standard42::service_status,
     pattern    => $standard42::process,
     require    => Package[$standard42::package],
+    noop       => $standard42::bool_noops,
   }
 
   file { 'standard42.conf':
@@ -354,6 +363,7 @@ class standard42 (
     content => $standard42::manage_file_content,
     replace => $standard42::manage_file_replace,
     audit   => $standard42::manage_audit,
+    noop    => $standard42::bool_noops,
   }
 
   # The whole standard42 configuration directory can be recursively overriden
@@ -369,6 +379,7 @@ class standard42 (
       force   => $standard42::bool_source_dir_purge,
       replace => $standard42::manage_file_replace,
       audit   => $standard42::manage_audit,
+      noop    => $standard42::bool_noops,
     }
   }
 
@@ -386,6 +397,7 @@ class standard42 (
       ensure    => $standard42::manage_file,
       variables => $classvars,
       helper    => $standard42::puppi_helper,
+      noop      => $standard42::bool_noops,
     }
   }
 
@@ -399,6 +411,7 @@ class standard42 (
         target   => $standard42::monitor_target,
         tool     => $standard42::monitor_tool,
         enable   => $standard42::manage_monitor,
+        noop     => $standard42::bool_noops,
       }
     }
     if $standard42::service != '' {
@@ -410,6 +423,7 @@ class standard42 (
         argument => $standard42::process_args,
         tool     => $standard42::monitor_tool,
         enable   => $standard42::manage_monitor,
+        noop     => $standard42::bool_noops,
       }
     }
   }
@@ -426,6 +440,7 @@ class standard42 (
       direction   => 'input',
       tool        => $standard42::firewall_tool,
       enable      => $standard42::manage_firewall,
+      noop        => $standard42::bool_noops,
     }
   }
 
@@ -439,6 +454,7 @@ class standard42 (
       owner   => 'root',
       group   => 'root',
       content => inline_template('<%= scope.to_hash.reject { |k,v| k.to_s =~ /(uptime.*|path|timestamp|free|.*password.*|.*psk.*|.*key)/ }.to_yaml %>'),
+      noop    => $standard42::bool_noops,
     }
   }
 
