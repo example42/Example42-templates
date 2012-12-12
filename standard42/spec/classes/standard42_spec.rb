@@ -38,7 +38,7 @@ describe 'standard42' do
   describe 'Test decommissioning - absent' do
     let(:params) { {:absent => true, :monitor => true , :firewall => true, :port => '42', :protocol => 'tcp'} }
 
-    it 'should remove Package[standard42]' do should contain_package('standard42').with_ensure('absent') end 
+    it 'should remove Package[standard42]' do should contain_package('standard42').with_ensure('absent') end
     it 'should stop Service[standard42]' do should contain_service('standard42').with_ensure('stopped') end
     it 'should not enable at boot Service[standard42]' do should contain_service('standard42').with_enable('false') end
     it 'should remove standard42 configuration file' do should contain_file('standard42.conf').with_ensure('absent') end
@@ -71,7 +71,7 @@ describe 'standard42' do
 
   describe 'Test decommissioning - disableboot' do
     let(:params) { {:disableboot => true, :monitor => true , :firewall => true, :port => '42', :protocol => 'tcp'} }
-  
+
     it { should contain_package('standard42').with_ensure('present') }
     it { should_not contain_service('standard42').with_ensure('present') }
     it { should_not contain_service('standard42').with_ensure('absent') }
@@ -85,7 +85,7 @@ describe 'standard42' do
       content = catalogue.resource('firewall', 'standard42_tcp_42').send(:parameters)[:enable]
       content.should == true
     end
-  end 
+  end
 
   describe 'Test customizations - template' do
     let(:params) { {:template => "standard42/spec.erb" , :options => { 'opt_a' => 'value_a' } } }
@@ -123,13 +123,6 @@ describe 'standard42' do
     it 'should automatically include a custom class' do
       content = catalogue.resource('file', 'standard42.conf').send(:parameters)[:content]
       content.should match "fqdn: rspec.example42.com"
-    end
-  end
-
-  describe 'Test service autorestart', :broken => true do
-    it 'should automatically restart the service, by default' do
-      content = catalogue.resource('file', 'standard42.conf').send(:parameters)[:notify]
-      content.should == 'Service[standard42]{:name=>"standard42"}'
     end
   end
 
@@ -180,7 +173,7 @@ describe 'standard42' do
       content = catalogue.resource('firewall', 'standard42_tcp_42').send(:parameters)[:tool]
       content.should == "iptables"
     end
-    it 'should generate puppi resources ' do 
+    it 'should generate puppi resources ' do
       content = catalogue.resource('puppi::ze', 'standard42').send(:parameters)[:ensure]
       content.should == "present"
     end
