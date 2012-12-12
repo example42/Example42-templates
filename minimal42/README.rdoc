@@ -66,3 +66,8 @@ This module requires the presence of Example42 Puppi module in your modulepath.
           my_class => 'example42::my_minimal42',
         }
 
+
+== CONTINUOUS TESTING
+
+Travis {<img src="https://travis-ci.org/example42/puppet-minimal42.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-minimal42]
+

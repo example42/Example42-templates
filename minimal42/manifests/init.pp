@@ -93,7 +93,7 @@ class minimal42 (
   $audit_only          = params_lookup( 'audit_only' , 'global' ),
   $package             = params_lookup( 'package' ),
   $config_dir          = params_lookup( 'config_dir' ),
-  $config_file         = params_lookup( 'config_file' )
+  $config_file         = params_lookup( 'config_file' ),
   ) inherits minimal42::params {
 
   $config_file_mode=$minimal42::params::config_file_mode
