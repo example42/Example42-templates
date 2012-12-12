@@ -3,6 +3,11 @@
 This is a collection of sample module layouts to be used as style reference or
 starting template for the creation of new modules.
 
+   - [standard42](https://github.com/example42/Example42-templates/tree/master/standard42) - The standard Package/Service/File Example42 module with a lot of powerful available options out of the box.
+
+   - [minimal42](https://github.com/example42/Example42-templates/tree/master/minimal42) - A stripped down, but hightly customizable Package/File module
+
+
 ## What is (will be) here
 
    - The basic templates used for the creation of Example42 modules
