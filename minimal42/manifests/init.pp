@@ -57,6 +57,11 @@
 #   Can be defined also by the (top scope) variables $minimal42_audit_only
 #   and $audit_only
 #
+# [*noops*]
+#   Set noop metaparameter to true for all the resources managed by the module.
+#   Basically you can run a dryrun for this specific module if you set
+#   this to true. Default: false
+#
 # Default class params - As defined in minimal42::params.
 # Note that these variables are mostly defined and used in the module itself,
 # overriding the default values might not affected all the involved components.
@@ -91,6 +96,7 @@ class minimal42 (
   $version             = params_lookup( 'version' ),
   $absent              = params_lookup( 'absent' ),
   $audit_only          = params_lookup( 'audit_only' , 'global' ),
+  $noops               = params_lookup( 'noops' ),
   $package             = params_lookup( 'package' ),
   $config_dir          = params_lookup( 'config_dir' ),
   $config_file         = params_lookup( 'config_file' ),
@@ -103,6 +109,7 @@ class minimal42 (
   $bool_source_dir_purge=any2bool($source_dir_purge)
   $bool_absent=any2bool($absent)
   $bool_audit_only=any2bool($audit_only)
+  $bool_noops=any2bool($noops)
 
   ### Definition of some variables used in the module
   $manage_package = $minimal42::bool_absent ? {
@@ -137,7 +144,8 @@ class minimal42 (
 
   ### Managed resources
   package { $minimal42::package:
-    ensure => $minimal42::manage_package,
+    ensure  => $minimal42::manage_package,
+    noop    => $minimal42::bool_noops,
   }
 
   file { 'minimal42.conf':
@@ -151,6 +159,7 @@ class minimal42 (
     content => $minimal42::manage_file_content,
     replace => $minimal42::manage_file_replace,
     audit   => $minimal42::manage_audit,
+    noop    => $minimal42::bool_noops,
   }
 
   # The whole minimal42 configuration directory can be recursively overriden
@@ -166,6 +175,7 @@ class minimal42 (
       force   => $minimal42::bool_source_dir_purge,
       replace => $minimal42::manage_file_replace,
       audit   => $minimal42::manage_audit,
+      noop    => $minimal42::bool_noops,
     }
   }
 

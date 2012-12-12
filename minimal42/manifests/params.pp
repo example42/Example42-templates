@@ -49,7 +49,7 @@ class minimal42::params {
   $options = ''
   $version = 'present'
   $absent = false
-
   $audit_only = false
+  $noops = false
 
 }

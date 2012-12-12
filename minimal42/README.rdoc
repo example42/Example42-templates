@@ -32,10 +32,16 @@ This module requires the presence of Example42 Puppi module in your modulepath.
           absent => true
         }
 
-* Enable auditing without without making changes on existing minimal42 configuration files
+* Enable auditing without without making changes on existing minimal42 configuration *files*
 
         class { 'minimal42':
           audit_only => true
+        }
+
+* Module dry-run: Do not make any change on *all* the resources provided by the module
+
+        class { 'standard42':
+          noops => true
         }
 
 
@@ -70,4 +76,3 @@ This module requires the presence of Example42 Puppi module in your modulepath.
 == CONTINUOUS TESTING
 
 Travis {<img src="https://travis-ci.org/example42/puppet-minimal42.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-minimal42]
-
