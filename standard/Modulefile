@@ -1,0 +1,8 @@
+name    'example42-standard'
+version '2.0.0'
+author  'Alessandro Franceschi'
+license 'Apache2'
+project_page 'http://www.example42.com'
+source  'https://github.com/example42/puppet-standard'
+summary 'Puppet module for standard'
+description 'This module installs and manages standard. Check README for details.'
