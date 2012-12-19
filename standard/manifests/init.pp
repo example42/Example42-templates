@@ -81,7 +81,7 @@ class standard (
   $disableboot         = false,
   $audit_only          = false,
   $noops               = false,
-  )  standard::params {
+  ) inherits standard::params {
 
   #################################################
   ### Definition of modules' internal variables ###
