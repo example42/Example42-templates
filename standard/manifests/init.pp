@@ -80,7 +80,7 @@ class standard (
   $disable             = false,
   $disableboot         = false,
   $audit_only          = false,
-  $noops               = false,
+  $noops               = false
   ) inherits standard::params {
 
   #################################################

@@ -197,17 +197,7 @@
 #   Can be defined also by the (top scope) variable $standard42_protocol
 #
 #
-# == Examples
-#
-# You can use this class in 2 ways:
-# - Set variables (at top scope level on in a ENC) and "include standard42"
-# - Call standard42 as a parametrized class
-#
-# See README for details.
-#
-#
-# == Author
-#   Alessandro Franceschi <al@lab42.it/>
+# See README for usage patterns.
 #
 class standard42 (
   $my_class            = params_lookup( 'my_class' ),
