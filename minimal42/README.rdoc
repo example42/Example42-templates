@@ -40,7 +40,7 @@ This module requires the presence of Example42 Puppi module in your modulepath.
 
 * Module dry-run: Do not make any change on *all* the resources provided by the module
 
-        class { 'standard42':
+        class { 'minimal42':
           noops => true
         }
 
