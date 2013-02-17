@@ -63,11 +63,6 @@ class package42 (
     false => $package42::version,
   }
 
-  $manage_audit = $package42::bool_audit_only ? {
-    true  => 'all',
-    false => undef,
-  }
-
   ### Managed resources
   if ! defined(Package[$package42::package]) {
     package { $package42::package:
