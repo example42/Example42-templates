@@ -168,7 +168,6 @@ class minimal42 (
       ensure  => directory,
       path    => $minimal42::config_dir,
       require => Package[$minimal42::package],
-      notify  => $minimal42::manage_service_autorestart,
       source  => $minimal42::source_dir,
       recurse => true,
       purge   => $minimal42::bool_source_dir_purge,
