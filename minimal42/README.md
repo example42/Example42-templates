@@ -1,4 +1,4 @@
-= Puppet module: minimal42
+# Puppet module: minimal42
 
 This is a Puppet module for minimal42
 It provides only package installation and file configuration.
@@ -14,7 +14,7 @@ Released under the terms of Apache 2 License.
 This module requires the presence of Example42 Puppi module in your modulepath.
 
 
-== USAGE - Basic management
+## USAGE - Basic management
 
 * Install minimal42 with default settings
 
@@ -45,7 +45,7 @@ This module requires the presence of Example42 Puppi module in your modulepath.
         }
 
 
-== USAGE - Overrides and Customizations
+## USAGE - Overrides and Customizations
 * Use custom sources for main config file 
 
         class { 'minimal42':
@@ -73,6 +73,6 @@ This module requires the presence of Example42 Puppi module in your modulepath.
         }
 
 
-== CONTINUOUS TESTING
+## CONTINUOUS TESTING
 
 Travis {<img src="https://travis-ci.org/example42/puppet-minimal42.png?branch=master" alt="Build Status" />}[https://travis-ci.org/example42/puppet-minimal42]

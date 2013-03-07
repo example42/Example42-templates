@@ -1,4 +1,4 @@
-= Puppet module: standard
+# Puppet module: standard
 
 This is a Puppet module for standard.
 
@@ -7,7 +7,7 @@ Based on a template defined in http://github.com/Example42-templates/
 Released under the terms of Apache 2 License.
 
 
-== USAGE - Basic management
+## USAGE - Basic management
 
 * Install standard with default settings
 
@@ -44,7 +44,7 @@ Released under the terms of Apache 2 License.
         }
 
 
-== USAGE - Overrides and Customizations
+## USAGE - Overrides and Customizations
 * Use custom sources for main config file 
 
         class { 'standard':
