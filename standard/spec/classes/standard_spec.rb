@@ -80,7 +80,7 @@ describe 'standard' do
   end
 
   describe 'Test service autorestart' do
-    let(:params) { {:service_autorestart => "no" } }
+    let(:params) { {:service_autorestart => false } }
     it 'should not automatically restart the service, when service_autorestart => false' do
       content = catalogue.resource('file', 'standard.conf').send(:parameters)[:notify]
       content.should be_nil

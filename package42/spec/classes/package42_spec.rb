@@ -25,9 +25,4 @@ describe 'package42' do
     it { should contain_package('package42').with_noop('true') }
   end
 
-  describe 'Test customizations - custom class' do
-    let(:params) { {:my_class => "package42::spec" } }
-    it { should contain_file('package42.conf').with_content(/rspec.example42.com/) }
-  end
-
 end
