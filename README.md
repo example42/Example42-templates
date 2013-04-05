@@ -23,6 +23,7 @@ All these modules feature some common principles:
 - **Decommissioning support**: All the resources can be installed and removed.
 
 
+## MODULES TEMPLATES
 The template modules in this repository:
 
 - [stdmod](https://github.com/example42/module-stdmod) - An implementation of a **Common Module Interface**, which uses PuppetLabs' stdlib. It manages the typical Package/Service/File pattern.
@@ -38,4 +39,24 @@ The template modules in this repository:
 - [package42](https://github.com/example42/module-package42) - The current **Example42** implementation of a single Package module, without services or configurations.
 
 
+## CLONE AND TEST
+You can quickly create new modules from these templates.
 
+First of all you need this repo with all its submodules:
+
+    git clone --recursive https://github.com/example42/Example42-templates.git
+  
+Once you have the respository you can use the `clone.sh` script to generate a new module from an existing temmplate. 
+For example, to create a basic openssh module from the **stdmod** template:
+
+    ./clone -m stdmod -n openssh
+    
+A new openssh module directory is created and you can start to customize it:
+
+- Edit `manifests/params.pp` to fix paths and names for different operating systems
+
+- Eventually add resources to manage in `manifests/init.pp` or in other subclasses
+
+- Eventually add modules' parameters in `manifests/init.pp` and where used (note that the `options` parameter can be used to populate a custom template with any possibile configuration item, without the need to add it as module's parameter)
+
+- Note that where you need to add other files managed by the module you can copy and paste the existing file resurce for the main configuration and change only the relevant parts (title, path, source or template…) keeping the other options to preserve the module's behaviour also on this new file (for example the `audit` or `noop` parameters)
