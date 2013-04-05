@@ -1,0 +1,15 @@
+[submodule "minimal42"]
+	path = minimal42
+	url = https://github.com/example42/module-minimal42.git
+[submodule "standard42"]
+	path = standard42
+	url = https://github.com/example42/module-standard42.git
+[submodule "package42"]
+	path = package42
+	url = https://github.com/example42/module-package42.git
+[submodule "standard"]
+	path = standard
+	url = https://github.com/example42/module-standard.git
+[submodule "stdmod"]
+	path = stdmod
+	url = https://github.com/example42/module-stdmod.git
