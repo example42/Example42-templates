@@ -2,10 +2,10 @@
 
 This repository contains various **experiments on Puppet modules design**.
 
-Alternative solutions are researched an published to provide basic sample modules that can be used as **blueprint** for the (quick) generation of new basic modules of different nature, upon which the relevant customizations can be done.
+Alternative solutions are researched and published to provide basic sample modules that can be used as **blueprint** for the (quick) generation of new basic modules of different nature, upon which the relevant customizations can be done.
 
 A set of common parameters (and possibly community standard) greatly enhances modules usability and interoperability.
-Some of the modules here (the ones named **stdmod**) implement an early proposal for a **Common Module Interface**: a set of common and standard parameters that provide standard functionalities.
+Some of the modules here (the ones named **stdmod**) implement an early proposal for a **Standard Module Interface**: a set of common and standard parameters that provide standard and predictable functionalities.
 
 I personally think that something like this would be of great benefit for the Puppet Modules ecosystem.
 
@@ -13,7 +13,7 @@ All these modules feature some common principles:
 
 - **True reusability**: you can completely manage the behaviour of the module via the parameters it exposes.
 
-- Easy **Multi OS support** implementation: all internal references to paths and names are concentraed into a
+- Easy **Multi OS support** implementation: all internal references to paths and names are concentrated into a
   single params class.
 
 - **Configuration freedom**: you can provide configuration files, parameters and whole dirs in the way you want.
@@ -26,9 +26,9 @@ All these modules feature some common principles:
 ## MODULES TEMPLATES
 The template modules in this repository:
 
-- [stdmod](https://github.com/example42/module-stdmod) - An implementation of a **Common Module Interface**, which uses PuppetLabs' stdlib. It manages the typical Package/Service/File pattern.
+- [stdmod](https://github.com/example42/module-stdmod) - An implementation of a **Standard Module Interface**, which uses PuppetLabs' stdlib. It manages the typical Package/Service/File pattern.
 
-- [stdmodalt](https://github.com/example42/module-stdmodalt) - An alternative **Common Module Interface** implementation with a layout based on separation of package/service/config resources.
+- [stdmodalt](https://github.com/example42/module-stdmodalt) - An alternative **Standard Module Interface** implementation with a layout based on separation of package/service/config resources into dedicated classes.
 
 - [standard](https://github.com/example42/module-standard) - Another Package/Service/File pattern implementation, with different parameters and **no dependencies**.
 
@@ -54,6 +54,10 @@ For example, to create a basic openssh module from the **stdmod** template:
 A new openssh module directory is created and you can start to customize it:
 
 - Edit `manifests/params.pp` to fix paths and names for different operating systems
+
+- Change email address and author in `Modulefile` and `.travis.yml`
+
+- Fix Travis icon url with your GitHub/Travis account in `README.md`
 
 - Eventually add resources to manage in `manifests/init.pp` or in other subclasses
 
