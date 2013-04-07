@@ -1,4 +1,4 @@
-# Example42 Modules Templates Experiments
+# Puppet Modules Templates Experiments
 
 This repository contains various **experiments on Puppet modules design**.
 
