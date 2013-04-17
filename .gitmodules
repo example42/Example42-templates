@@ -12,7 +12,7 @@
 	url = https://github.com/example42/module-standard.git
 [submodule "stdmod"]
 	path = stdmod
-	url = https://github.com/example42/module-stdmod.git
+	url = https://github.com/example42/puppet-stdmod.git
 [submodule "stdmodalt"]
 	path = stdmodalt
-	url = https://github.com/example42/module-stdmodalt.git
+	url = https://github.com/example42/puppet-stdmodalt.git
