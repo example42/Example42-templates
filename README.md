@@ -26,9 +26,9 @@ All these modules feature some common principles:
 ## MODULES TEMPLATES
 The template modules in this repository:
 
-- [stdmod](https://github.com/example42/module-stdmod) - An implementation of a **Standard Module Interface**, which uses PuppetLabs' stdlib. It manages the typical Package/Service/File pattern.
+- [stdmod](https://github.com/example42/puppet-stdmod) - An implementation of a **Standard Module Interface**, which uses PuppetLabs' stdlib. It manages the typical Package/Service/File pattern.
 
-- [stdmodalt](https://github.com/example42/module-stdmodalt) - An alternative **Standard Module Interface** implementation with a layout based on separation of package/service/config resources into dedicated classes.
+- [stdmodalt](https://github.com/example42/puppet-stdmodalt) - An alternative **Standard Module Interface** implementation with a layout based on separation of package/service/config resources into dedicated classes.
 
 - [standard](https://github.com/example42/module-standard) - Another Package/Service/File pattern implementation, with different parameters and **no dependencies**.
 
